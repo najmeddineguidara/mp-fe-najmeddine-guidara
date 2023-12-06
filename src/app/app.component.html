@@ -1,0 +1,15 @@
+<div>
+  <nav>
+    <ul>
+      <li *ngFor="let action of actions">
+        <button 
+          (click)="setActionCourante(action)" 
+          [class.active]="action === actionCourante"
+          routerLink="{{action.route}}">
+          {{action.titre}}
+        </button>
+      </li>
+    </ul>
+  </nav>
+</div>
+<router-outlet></router-outlet>

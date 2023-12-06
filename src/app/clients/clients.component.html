@@ -1,0 +1,92 @@
+<!-- clients.component.html -->
+<div *ngIf="modeEdition === true"> 
+  <h1> Modification Client </h1>
+  
+  <form #clientForm="ngForm" (ngSubmit)="validateForm(clientForm)">
+    <table>   
+      <tr>
+        <td>  Id: </td>
+        <td>  <input id="id" name="id" type="text" [(ngModel)]="clientCourant.id" required readonly /></td>
+      </tr>
+      
+      <tr>
+        <td>  Nom: </td>
+        <td>  <input type="text" name="nom" [(ngModel)]="clientCourant.nom" /> </td>
+      </tr>
+      
+      <tr>
+        <td>  Prenom: </td>
+        <td>  <input type="text" name="prenom" [(ngModel)]="clientCourant.prenom" /> </td>
+      </tr>
+      
+      <tr>
+        <td>  Numero: </td>
+        <td>  <input type="text" name="numero" [(ngModel)]="clientCourant.numero" /> </td>
+      </tr>
+      
+      <tr>
+        <td>  Adresse: </td>
+        <td>  <input type="text" name="adresse" [(ngModel)]="clientCourant.adresse" /> </td>
+      </tr>
+
+      
+      <tr>
+        <td>  Chiffre d'Affaires: </td>
+        <td>  <input type="text" name="chiffreAffaires" [(ngModel)]="clientCourant.chiffreAffaires" readonly /> </td>
+      </tr>
+      
+      <tr>
+        <td>  Date d'Inscription: </td>
+        <td>  <input type="text" name="dateInscription" [(ngModel)]="clientCourant.dateInscription"  readonly/> </td>
+      </tr>
+      
+      <tr [align]="'center'" colspan="2">  
+        <div style="text-align: right; margin-right: 10px;padding: 10px;">
+          <button type="button" style="padding: 10px;" (click)="modeEdition = false">Annuler</button>
+          <input type="submit" value="Valider" [disabled]="!clientForm.form.valid" /> 
+        </div>
+      </tr>          
+    </table> 
+  </form>
+</div>
+
+<h1>Liste des clients</h1>
+<div class="search-container container">
+  <div class="search-input-container">
+    <input type="text" placeholder="Rechercher par nom" [(ngModel)]="searchTerm" class="search-input" (input)="performSearch()" />
+  </div>
+</div>
+
+
+<table class="container">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Prenom</th>
+      <th>Numero</th>
+      <th>Adresse</th>
+      <th>Chiffre d'Affaires</th>
+      <th>Date d'Inscription</th>
+  
+      <th colspan="2">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let c of clients">
+      <td>{{c.nom}}</td>
+      <td>{{c.prenom}}</td>
+      <td>{{c.numero}}</td>
+      <td>{{c.adresse}}</td>
+      <td>{{c.chiffreAffaires}}</td>
+      <td>{{c.dateInscription}}</td>
+     
+      <td>
+        <button class="edit-button" style="cursor: pointer;"  (click)="editClient(c)">Editer</button>
+      </td>
+      <td>
+        <button class="delete-button"style="cursor: pointer;" (click)="deleteClient(c)">Supprimer</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

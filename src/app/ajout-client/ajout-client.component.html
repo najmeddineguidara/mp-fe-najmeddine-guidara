@@ -1,0 +1,30 @@
+<div> 
+  <h1> Fiche Client </h1>
+  
+  <form #clientForm="ngForm" (ngSubmit)="validerFormulaire(clientForm)">
+    <table>   
+      <tr>
+        <td> Nom: </td>
+        <td> <input type="text" name="nom" [(ngModel)]="nouveauClient.nom" required /> </td>
+      </tr>
+      <tr>
+        <td> Prénom: </td>
+        <td> <input type="text" name="prenom" [(ngModel)]="nouveauClient.prenom" required /> </td>
+      </tr>
+      <tr>
+        <td> Numéro: </td>
+        <td> <input type="text" name="numero" [(ngModel)]="nouveauClient.numero" required /> </td>
+      </tr>
+      <tr>
+        <td> Adresse: </td>
+        <td> <input type="text" name="adresse" [(ngModel)]="nouveauClient.adresse" required /> </td>
+      </tr>
+      <tr>
+        <td [align]="'center'" colspan="2">  
+          <input type="button" value="Ajouter" [disabled]="!clientForm.form.valid" (click)="validerFormulaire(clientForm)" />
+          <button (click)="clientForm.reset()">Effacer</button>
+        </td>
+      </tr>        
+    </table> 
+  </form>
+</div>

@@ -1,0 +1,32 @@
+{
+  "produits": [
+    {
+      "id": 1,
+      "code": "x12",
+      "designation": "Panier plastique",
+      "prix": 20,
+      "enPromotion": true
+    },
+    {
+      "id": 2,
+      "code": "y4",
+      "designation": "table en bois",
+      "prix": 100,
+      "enPromotion": true
+    },
+    {
+      "id": 3,
+      "code": "z45",
+      "designation": "Ordinateur",
+      "prix": 2500,
+      "enPromotion": true
+    },
+    {
+      "id": "4",
+      "code": "x12",
+      "designation": "Panier plastique",
+      "prix": 20,
+      "enPromotion": true
+    }
+  ]
+}
